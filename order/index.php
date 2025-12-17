@@ -10,7 +10,22 @@ $orders = $conn->query("SELECT produk.nama_produk, produk.harga,
     ON produk.id_produk = order.id_produk")->fetch_all(MYSQLI_ASSOC);
 ?>
 
-<h1>Ini halaman Order</h1>
+<?php
+// Jika terdapat pesan sukses setelah input data, maka:
+if (isset($_SESSION['success'])):
+?>
+    <div class="alert alert-success"><?= $_SESSION['success']; ?></div>
+
+<?php
+    // Setelah selesai menampilkan alert, hapus session success tadi
+    unset($_SESSION['success']);
+endif;
+?>
+
+<h2>Produk</h2>
+<a href="./create.php" class="btn btn-primary">
+    Tambah Order
+</a>
 
 <!-- Tabel bisa diambil dari halaman bootstrap -->
 <table class="table">

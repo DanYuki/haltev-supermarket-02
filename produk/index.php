@@ -1,13 +1,29 @@
 <?php
 require_once __DIR__ . "/../layout/header.php";
 require_once __DIR__ . "/../config.php";
+session_start();
 
 // Get data dari table produk dalam database
-$produk = $conn->query("SELECT * FROM produk")->fetch_all(MYSQLI_ASSOC);
+$produk = $conn->query("SELECT * FROM produk ORDER BY id_produk DESC LIMIT 20")->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
-<h1>Ini halaman produk</h1>
+<?php
+// Jika terdapat pesan sukses setelah input data, maka:
+if (isset($_SESSION['success'])):
+?>
+    <div class="alert alert-success"><?= $_SESSION['success']; ?></div>
+
+<?php
+    // Setelah selesai menampilkan alert, hapus session success tadi
+    unset($_SESSION['success']);
+endif;
+?>
+
+<h2>Produk</h2>
+<a href="./create.php" class="btn btn-primary">
+    Tambah Produk
+</a>
 
 <!-- Tabel bisa diambil dari halaman bootstrap -->
 <table class="table">

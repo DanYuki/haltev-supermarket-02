@@ -7,7 +7,22 @@ $staff = $conn->query("SELECT * FROM staff")->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
-<h1>Ini halaman Staff</h1>
+<?php
+// Jika terdapat pesan sukses setelah input data, maka:
+if (isset($_SESSION['success'])):
+?>
+    <div class="alert alert-success"><?= $_SESSION['success']; ?></div>
+
+<?php
+    // Setelah selesai menampilkan alert, hapus session success tadi
+    unset($_SESSION['success']);
+endif;
+?>
+
+<h2>Staff</h2>
+<a href="./create.php" class="btn btn-primary">
+    Tambah Staff
+</a>
 
 <!-- Tabel bisa diambil dari halaman bootstrap -->
 <table class="table">
