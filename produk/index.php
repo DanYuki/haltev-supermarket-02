@@ -37,21 +37,25 @@ endif;
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($produk as $key => $value): ?>
+        <?php
+        $nomor = 0;
+        foreach ($produk as $key => $value): ?>
             <tr>
-                <th scope="row"><?= $value['id_produk'] ?></th>
+                <th scope="row"><?= $nomor += 1 ?></th>
                 <td><?= $value['nama_produk'] ?></td>
                 <td><?= $value['harga'] ?></td>
                 <td><?= $value['stok'] ?></td>
                 <td><?= $value['kategori'] ?></td>
                 <td>
-                    <button class="btn btn-warning">Edit</button>
-                    <button class="btn btn-danger">Hapus</button>
+                    <a href="./edit.php?id_produk=<?= $value['id_produk'] ?>" class="btn btn-warning">Edit</a>
+                    <a href="./delete.php?id_produk=<?= $value['id_produk'] ?>" class="btn btn-danger"
+                        onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+
 
 <?php
 require_once __DIR__ . "/../layout/footer.php";
