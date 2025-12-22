@@ -4,7 +4,9 @@ require_once __DIR__ . "/config.php";
 
 $baseURL = "http://localhost/supermarket-02";
 
-function store_produk(string $nama_produk, int $harga, int $stok, string $kategori) {
+
+function store_produk(string $nama_produk, int $harga, int $stok, string $kategori)
+{
     global $conn;
     global $baseURL;
 
@@ -19,24 +21,6 @@ function store_produk(string $nama_produk, int $harga, int $stok, string $katego
     header("Location:" . $baseURL . "/produk/index.php");
     exit();
 }
-
-function store_staff(string $nama_staff, int $gaji_pokok, string $posisi, string $tgl_mulai)
-{
-    global $conn;
-    global $baseURL;
-
-    // Jalankan logic database disini
-    $stmt = $conn->prepare("INSERT INTO staff (nama_staff, gaji_pokok, posisi, tgl_mulai) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$nama_staff, $gaji_pokok, $posisi, $tgl_mulai]);
-
-    // Optional: Berikan pesan berhasil ke halaman depan
-    $_SESSION['success'] = "Input staff berhasil!";
-
-    // Jika tidak ada masalah, maka kembalikan user ke belakang/halam indeks produk
-    header("Location:" . $baseURL . "/staff/index.php");
-    exit();
-}
-
 function store_order(int $id_produk, int $quantity, string $tanggal)
 {
     global $conn;
@@ -53,7 +37,6 @@ function store_order(int $id_produk, int $quantity, string $tanggal)
     header("Location:" . $baseURL . "/order/index.php");
     exit();
 }
-
 function update_produk(string $nama_produk, int $harga, int $stok, string $kategori, int $id_produk)
 {
     global $conn;
@@ -71,7 +54,8 @@ function update_produk(string $nama_produk, int $harga, int $stok, string $kateg
     exit();
 }
 
-function delete_produk(int $id_produk) {
+function delete_produk(int $id_produk)
+{
     global $conn;
     global $baseURL;
 

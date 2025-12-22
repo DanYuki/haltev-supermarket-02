@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../helper.php";
+require __DIR__ . "/../helper_produk.php";
 
 // Get dulu id_produk dari variabel $_GET
 $id_produk = $_GET['id_produk'];

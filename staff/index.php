@@ -45,7 +45,7 @@ endif;
                 <td><?= $value['posisi'] ?></td>
                 <td><?= $value['tgl_mulai'] ?></td>
                 <td>
-                    <button class="btn btn-warning">Edit</button>
+                    <a href="./edit.php?id_staff=<?= $value['id_staff'] ?>" class="btn btn-warning">Edit</a>
                     <button class="btn btn-danger">Hapus</button>
                 </td>
             </tr>

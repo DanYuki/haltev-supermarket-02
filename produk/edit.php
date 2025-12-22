@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/../layout/header.php";
-require_once __DIR__ . "/../helper.php";
+require_once __DIR__ . "/../helper_produk.php";
 
 // Get dulu produk_id dari $_GET
 $id_produk = $_GET['id_produk'];
