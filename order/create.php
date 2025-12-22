@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <div>
-        <label for="harga" class="form-label">Quantity</label>
-        <input type="text" name="harga" class="form-control" placeholder="Rp.xxxx">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input type="text" name="quantity" class="form-control" placeholder="0">
     </div>
 
     <div>

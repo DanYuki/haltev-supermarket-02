@@ -5,13 +5,13 @@ session_start();
 
 $baseURL = "http://localhost/supermarket-02";
 
-function store_produk(string $id_produk, int $quantity, int $tanggal, string $kategori) {
+function store_produk(string $nama_produk, int $harga, int $stok, string $kategori) {
     global $conn;
     global $baseURL;
 
     // Jalankan logic database disini
-    $stmt = $conn->prepare("INSERT INTO produk (id_produk, quantity, tanggal, kategori) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$id_produk, $quantity, $tanggal, $kategori]);
+    $stmt = $conn->prepare("INSERT INTO produk (nama_produk, harga, stok, kategori) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$nama_produk, $harga, $stok, $kategori]);
 
     // Optional: Berikan pesan berhasil ke halaman depan
     $_SESSION['success'] = "Input produk berhasil!";
@@ -21,14 +21,14 @@ function store_produk(string $id_produk, int $quantity, int $tanggal, string $ka
     exit();
 }
 
-function store_staff(string $id_produk, int $quantity, string $tanggal, string $tgl_mulai)
+function store_staff(string $nama_staff, int $gaji_pokok, string $posisi, string $tgl_mulai)
 {
     global $conn;
     global $baseURL;
 
     // Jalankan logic database disini
-    $stmt = $conn->prepare("INSERT INTO staff (id_produk, quantity, tanggal, ) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$id_produk, $quantity, $tanggal, $tgl_mulai]);
+    $stmt = $conn->prepare("INSERT INTO staff (nama_staff, gaji_pokok, posisi, tgl_mulai) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$nama_staff, $gaji_pokok, $posisi, $tgl_mulai]);
 
     // Optional: Berikan pesan berhasil ke halaman depan
     $_SESSION['success'] = "Input staff berhasil!";
@@ -44,7 +44,7 @@ function store_order(int $id_produk, int $quantity, string $tanggal)
     global $baseURL;
 
     // Jalankan logic database disini
-    $stmt = $conn->prepare("INSERT INTO order (id_produk, quantity, tanggal) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO `order` (id_produk, quantity, tanggal) VALUES (?, ?, ?)");
     $stmt->execute([$id_produk, $quantity, $tanggal]);
 
     // Optional: Berikan pesan berhasil ke halaman depan

@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . "/../layout/header.php";
 require_once __DIR__ . "/../config.php";
-session_start();
 
 // Get data dari table produk dalam database
 $produk = $conn->query("SELECT * FROM produk ORDER BY id_produk DESC LIMIT 20")->fetch_all(MYSQLI_ASSOC);

@@ -1,3 +1,7 @@
+<?php
+$baseURL = "http://localhost/supermarket-02";
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -15,9 +19,9 @@
             <h1>Ini aplikasi Supermarket</h1>
 
             <div class="mt-3">
-                <a href="./produk/index.php" class="btn btn-primary">Halaman Produk</a>
-                <a href="./staff/index.php" class="btn btn-warning">Halaman Staff</a>
-                <a href="./order/index.php" class="btn btn-success">Halaman Order</a>
+                <a href="<?= $baseURL ?>/produk/index.php" class="btn btn-primary">Halaman Produk</a>
+                <a href="<?= $baseURL ?>/staff/index.php" class="btn btn-warning">Halaman Staff</a>
+                <a href="<?= $baseURL ?>/order/index.php" class="btn btn-success">Halaman Order</a>
             </div>
         </div>
     </div>
